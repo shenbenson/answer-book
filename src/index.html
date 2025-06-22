@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>答案之书 / Book of Answers</title>
+
+  <meta name="description" content="答案之书，提供简体中文、繁体中文和英文三种语言的随机智慧答案。揭示生活、工作、感情等问题的最佳建议。" />
+
+  <meta name="keywords" content="答案, 随机答案, Book of Answers, 智慧答案, 在线占卜, 中文答案, 英文答案" />
+  <meta name="author" content="shenbenson" />
+
+  <meta property="og:title" content="答案之书 - Book of Answers" />
+  <meta property="og:description" content="提供三种语言的随机智慧答案，帮助你揭示生活中的疑问。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://boa.bensonshen.com/" />
+  <meta property="og:image" content="https://boa.bensonshen.com/assets/img/preview.png" />
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📘</text></svg>">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <h1 id="title">📖 答案之书 / Book of Answers</h1>
+
+  <select id="langSelect" onchange="changeLanguage(this.value)">
+    <option value="zh">简体中文</option>
+    <option value="zh-TW">繁體中文</option>
+    <option value="en">English</option>
+  </select>
+
+  <div class="answer-box" id="answer"></div>
+
+  <div>
+    <button id="answerButton" onclick="handleButtonClick()"></button>
+    <button id="shareButton" onclick="shareAnswer()" style="display:none;"></button>
+  </div>
+
+  <footer>
+    © 2025 答案之书 / Book of Answers by <a href="/">shenbenson</a>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
