@@ -139,24 +139,21 @@ const labels = {
     defaultText: "你的问题想好了吗？点击下方揭示答案。", 
     reveal: "揭示答案", 
     again: "再问一个问题", 
-    share: "分享",
-    alert: "链接已复制到剪贴板！"
+    share: "分享给朋友"
     },
     "zh-TW": { 
     title: "📖 答案之書", 
     defaultText: "你的問題想好了嗎？點擊下方揭示答案。", 
     reveal: "揭示答案", 
     again: "再問一個問題", 
-    share: "分享",
-    alert: "已複製到剪貼板！"
+    share: "分享給朋友"
     },
     en: { 
     title: "📖 Book of Answers", 
     defaultText: "Have you formed your question?\nClick below to reveal the answer.", 
     reveal: "Reveal Answer", 
     again: "Ask Another Question", 
-    share: "Share",
-    alert: "Copied to clipboard!"
+    share: "Share with Friends"
     }
 };
 
@@ -211,8 +208,8 @@ function changeLanguage(lang) {
 }
 
 const sharePrompts = {
-    zh: "想要人生指引吗？快来【网址】，免费体验「答案之书」，解答你的所有疑问！",
-    "zh-TW": "想要人生指引嗎？快來【網址】，免費體驗「答案之書」，解答你的所有疑問！",
+    zh: "想要人生指引吗？快来【网址】 免费体验「答案之书」，解答你的所有疑问！",
+    "zh-TW": "想要人生指引嗎？快來【网址】 免費體驗「答案之書」，解答你的所有疑問！",
     en: "Looking for guidance? Visit 【URL】 to try the \"Book of Answers\" for free and get clarity on your questions!"
 };
 
