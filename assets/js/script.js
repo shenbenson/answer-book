@@ -133,41 +133,7 @@ const enAnswers = [
 
 const allAnswers = { zh: zhAnswers, "zh-TW": twAnswers, en: enAnswers };
 
-const labels = {
-    zh: { 
-    title: "📖 答案之书", 
-    defaultText: "你的问题想好了吗？点击下方揭示答案。", 
-    reveal: "揭示答案", 
-    again: "再问一个问题", 
-    share: "分享给朋友"
-    },
-    "zh-TW": { 
-    title: "📖 答案之書", 
-    defaultText: "你的問題想好了嗎？點擊下方揭示答案。", 
-    reveal: "揭示答案", 
-    again: "再問一個問題", 
-    share: "分享給朋友"
-    },
-    en: { 
-    title: "📖 Book of Answers", 
-    defaultText: "Have you formed your question?\nClick below to reveal the answer.", 
-    reveal: "Reveal Answer", 
-    again: "Ask Another Question", 
-    share: "Share with Friends"
-    }
-};
-
-let currentLang = "zh";
 let answered = false;
-
-function init() {
-    const savedLang = localStorage.getItem("preferredLang");
-    if (savedLang && labels[savedLang]) {
-    currentLang = savedLang;
-    document.getElementById("langSelect").value = currentLang;
-    }
-    changeLanguage(currentLang);
-}
 
 function handleButtonClick() {
     const btn = document.getElementById("answerButton");
@@ -178,7 +144,7 @@ function handleButtonClick() {
 
     answered = true;
     btn.disabled = true;
-    box.textContent = currentLang === "en" ? "Thinking" : "思考中";
+    box.textContent = currentLang === "en" ? "Thinking" : currentLang === "zh" ? "翻页中" : "翻頁中";
     box.classList.add("loading-dots");
 
     setTimeout(() => {
@@ -192,19 +158,7 @@ function handleButtonClick() {
 
     shareBtn.style.display = "inline-block";
     shareBtn.textContent = labels[currentLang].share;
-    }, 1500);
-}
-
-function changeLanguage(lang) {
-    currentLang = lang;
-    localStorage.setItem("preferredLang", lang); // ✅ 保存语言
-    const lab = labels[lang];
-
-    document.getElementById("title").textContent = lab.title;
-    document.getElementById("answer").textContent = lab.defaultText;
-    document.getElementById("answerButton").textContent = lab.reveal;
-    document.getElementById("shareButton").style.display = "none";
-    answered = false;
+    }, 1200);
 }
 
 const sharePrompts = {
@@ -230,5 +184,3 @@ function shareAnswer() {
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
 });
-
-window.onload = init;

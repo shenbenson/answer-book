@@ -40,6 +40,52 @@
     <button id="shareButton" onclick="shareAnswer()" style="display:none;">分享给朋友</button>
   </div>
 
+  <script>
+    let currentLang = "zh";
+    const labels = {
+      zh: { 
+      title: "📖 答案之书", 
+      defaultText: "你的问题想好了吗？点击下方揭示答案。", 
+      reveal: "揭示答案", 
+      again: "再问一个问题", 
+      share: "分享给朋友"
+      },
+      "zh-TW": { 
+      title: "📖 答案之書", 
+      defaultText: "你的問題想好了嗎？點擊下方揭示答案。", 
+      reveal: "揭示答案", 
+      again: "再問一個問題", 
+      share: "分享給朋友"
+      },
+      en: { 
+      title: "📖 Book of Answers", 
+      defaultText: "Have you formed your question?\nClick below to reveal the answer.", 
+      reveal: "Reveal Answer", 
+      again: "Ask Another Question", 
+      share: "Share with Friends"
+      }
+    };
+
+    function changeLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem("preferredLang", lang); // ✅ 保存语言
+      const lab = labels[lang];
+
+      document.getElementById("title").textContent = lab.title;
+      document.getElementById("answer").textContent = lab.defaultText;
+      document.getElementById("answerButton").textContent = lab.reveal;
+      document.getElementById("shareButton").style.display = "none";
+      answered = false;
+    }
+
+    const savedLang = localStorage.getItem("preferredLang");
+    if (savedLang && labels[savedLang]) {
+      currentLang = savedLang;
+      document.getElementById("langSelect").value = currentLang;
+    }
+    changeLanguage(currentLang);
+  </script>
+
   <footer>
     © 2025 答案之书 / Book of Answers by <a href="/">shenbenson</a>
   </footer>
