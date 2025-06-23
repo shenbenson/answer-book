@@ -24,7 +24,7 @@
 </head>
 
 <body>
-  <h1 id="title">📖 答案之书 / Book of Answers</h1>
+  <h1 id="title">📖 答案之书</h1>
 
   <select id="langSelect" onchange="changeLanguage(this.value)">
     <option value="zh">简体中文</option>
@@ -32,11 +32,11 @@
     <option value="en">English</option>
   </select>
 
-  <div class="answer-box" id="answer"></div>
+  <div class="answer-box" id="answer">你的问题想好了吗？点击下方揭示答案。</div>
 
   <div>
-    <button id="answerButton" onclick="handleButtonClick()"></button>
-    <button id="shareButton" onclick="shareAnswer()" style="display:none;"></button>
+    <button id="answerButton" onclick="handleButtonClick()">揭示答案</button>
+    <button id="shareButton" onclick="shareAnswer()" style="display:none;">分享给朋友</button>
   </div>
 
   <footer>
