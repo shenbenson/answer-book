@@ -68,7 +68,7 @@
 
     function changeLanguage(lang) {
       currentLang = lang;
-      localStorage.setItem("preferredLang", lang); // ✅ 保存语言
+      localStorage.setItem("preferredLang", lang);
       const lab = labels[lang];
 
       document.getElementById("title").textContent = lab.title;
@@ -78,11 +78,28 @@
       answered = false;
     }
 
-    const savedLang = localStorage.getItem("preferredLang");
-    if (savedLang && labels[savedLang]) {
-      currentLang = savedLang;
-      document.getElementById("langSelect").value = currentLang;
+    function getUserLanguage() {
+      const savedLang = localStorage.getItem("preferredLang");
+      if (savedLang && labels[savedLang]) {
+        return savedLang;
+      }
+      
+      const browserLang = navigator.language || navigator.userLanguage;
+      if (browserLang) {
+        if (browserLang.startsWith('zh-TW') || browserLang.startsWith('zh-HK')) {
+          return "zh-TW";
+        } else if (browserLang.startsWith('zh')) {
+          return "zh";
+        } else if (browserLang.startsWith('en')) {
+          return "en";
+        }
+      }
+
+      return "zh";
     }
+
+    currentLang = getUserLanguage();
+    document.getElementById("langSelect").value = currentLang;
     changeLanguage(currentLang);
   </script>
 
